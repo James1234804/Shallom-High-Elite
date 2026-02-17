@@ -56,10 +56,21 @@
   <section id="projects" class="section container projects reveal">
         <h2>Selected projects</h2>
         <div class="cards">
-          <article class="card">
+          <article class="card project-card">
             <h3>Shallom High — School Management</h3>
             <p>School management dashboard with attendance, fees, timetable and user roles.</p>
-            <p class="card-links"><a href="projects/shallom/index.html" target="_blank" rel="noopener">Live</a> · <a href="https://github.com/james1234804/Shallom-High-Elite" target="_blank" rel="noopener">Code</a></p>
+
+            <div class="project-preview">
+              <div class="preview-frame-wrapper" title="Live preview — click Preview to open larger">
+                <iframe src="projects/shallom/index.html" title="Shallom live preview" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+              </div>
+
+              <div style="margin-top:0.6rem; display:flex; gap:0.6rem; align-items:center;">
+                <button class="btn btn-sm" onclick="openProjectPreview('projects/shallom/index.html')">Preview</button>
+                <a class="card-links" href="projects/shallom/index.html" target="_blank" rel="noopener">Open in new tab</a>
+                <a class="card-links" href="https://github.com/james1234804/Shallom-High-Elite" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
           </article>
 
           <article class="card">

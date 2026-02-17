@@ -94,3 +94,33 @@ if ('IntersectionObserver' in window && revealElems.length) {
   // fallback: reveal all
   revealElems.forEach(el => el.classList.add('visible'));
 }
+
+// --- Project preview modal (opened from project card) ---
+function openProjectPreview(src){
+  let modal = document.getElementById('projectPreviewModal');
+  if (!modal){
+    modal = document.createElement('div');
+    modal.id = 'projectPreviewModal';
+    modal.className = 'preview-modal';
+    modal.setAttribute('aria-hidden','true');
+    modal.innerHTML = `
+      <div class="preview-modal-content" role="dialog" aria-modal="true">
+        <button class="modal-close" aria-label="Close preview" onclick="closeProjectPreview()">✕</button>
+        <iframe id="projectPreviewIframe" src="" frameborder="0" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+      </div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeProjectPreview(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectPreview(); });
+  }
+  const iframe = document.getElementById('projectPreviewIframe');
+  iframe.src = src;
+  modal.setAttribute('aria-hidden','false');
+}
+
+function closeProjectPreview(){
+  const modal = document.getElementById('projectPreviewModal');
+  if (!modal) return;
+  const iframe = document.getElementById('projectPreviewIframe');
+  iframe.src = 'about:blank';
+  modal.setAttribute('aria-hidden','true');
+}
