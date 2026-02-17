@@ -93,13 +93,29 @@ body{
 .preview-frame-wrapper iframe{width:100%;height:100%;border:0;display:block}
 .btn-sm{padding:0.35rem 0.6rem;font-size:0.85rem;border-radius:8px}
 
+/* Project card layout (matches example image) */
+.project-card-inner{display:grid;grid-template-columns:1fr 280px;gap:1rem;align-items:start}
+.project-card-left h3{margin:0 0 0.5rem}
+.project-desc{color:var(--muted);margin:0 0 0.75rem}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:0.9rem}
+.tag-pill{padding:0.35rem 0.6rem;border-radius:999px;border:1px solid rgba(67,233,123,0.18);background:transparent;color:#9fe9bb;font-size:0.78rem}
+
+.project-actions{display:flex;gap:0.6rem;align-items:center}
+.btn-live{background:linear-gradient(90deg,#23c06a,#0fb36b);color:white;padding:0.55rem 0.84rem;border-radius:10px;border:0;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:0.45rem 0.7rem;border-radius:10px;display:inline-flex;align-items:center}
+.btn-preview-small{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:0.35rem 0.6rem;border-radius:8px}
+
+.project-card-right .preview-frame-wrapper{height:140px}
+
+/* Modal (kept from earlier) */
 .preview-modal{position:fixed;inset:0;background:rgba(2,6,23,0.75);display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity .12s ease}
 .preview-modal[aria-hidden="false"]{opacity:1;pointer-events:auto}
 .preview-modal-content{width:min(1100px,95%);height:min(820px,92%);background:var(--card);border-radius:12px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.04);box-shadow:0 40px 80px rgba(2,6,23,0.6)}
 .preview-modal-content iframe{width:100%;height:100%;border:0;background:white}
 .preview-modal .modal-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.45);border:0;color:var(--text);padding:6px 8px;border-radius:8px;cursor:pointer}
 
-@media (max-width:640px){.preview-frame-wrapper{height:120px}.preview-modal-content{height:88vh}}
+@media (max-width:900px){.project-card-inner{grid-template-columns:1fr 200px}}
+@media (max-width:640px){.preview-frame-wrapper{height:120px}.preview-modal-content{height:88vh}.project-card-inner{grid-template-columns:1fr;gap:0.75rem}.project-card-right{order:-1}}
 
 .skill-list{display:flex;flex-wrap:wrap;gap:0.5rem;list-style:none;padding:0;margin:0}
 .skill-list li{background:var(--glass);padding:0.5rem 0.75rem;border-radius:10px;color:var(--muted)}
